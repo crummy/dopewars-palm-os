@@ -1,0 +1,620 @@
+// dopewars.rcp
+// Resources for DopeWars
+// Matt Lee
+// mattlee@mit.edu
+
+#include "dopewars.h"
+
+FORM ID kidIntro AT (2 2 156 156)
+USABLE
+NOFRAME
+HELPID kidRulesHelp
+BEGIN
+
+	FORMBITMAP AT (143 0-1) BITMAP kidInfoIcon
+	FORMBITMAP AT (0 3) BITMAP kidDopeGuy
+	LABEL "DopeWars" ID 1000 AT (72 20) FONT 2
+	LABEL "Version 2.2" ID 1001 AT (PREVLEFT 35) FONT 0
+	LABEL "Compiled 1/25/2000" ID 1001 AT (PREVLEFT 45) FONT 0
+	LABEL "by Matthew Lee" ID 1001 AT (PREVLEFT 65) FONT 1
+	LABEL "mattlee@mit.edu" ID 1001 AT (PREVLEFT 77) FONT 0
+	LABEL "Based on Drug Wars" ID 1001 AT (PREVLEFT 95) FONT 0
+	LABEL "by John E. Dell" ID 1001 AT (PREVLEFT 107) FONT 0
+	BUTTON "Ok" ID kidOk AT (PREVLEFT 140 AUTO AUTO)
+
+END
+
+FORM ID kidIntro2 AT (2 2 156 156)
+USABLE
+NOFRAME
+BEGIN
+
+	
+	BUTTON "Start Game" ID kidOk AT (CENTER 143 AUTO AUTO)
+
+END
+
+FORM ID kidGameOver AT (2 2 156 156)
+NOFRAME
+MODAL
+USABLE
+BEGIN
+	TITLE "Game Over"
+
+	LABEL "Final Cash: $" ID 1000 AT (5 20) FONT 1
+	LABEL "High Scores" ID 1000 AT (CENTER 60) FONT 1
+	BUTTON "Start New Game" ID kidOk AT (CENTER 140 AUTO AUTO)
+
+END
+
+FORM ID kidTravel AT (2 2 156 156)
+USABLE
+MODAL
+NOFRAME
+HELPID kidTravelHelp
+BEGIN
+	TITLE "Jet"
+
+	LABEL "Where to, dude?" ID 1001 AT (CENTER 20) FONT 1	
+	SELECTORTRIGGER "Bronx" ID 2000 AT (45 40 70 AUTO)
+	SELECTORTRIGGER "Ghetto" ID 2001 AT (45 PREVBOTTOM+1 70 AUTO)
+	SELECTORTRIGGER "Central Park" ID 2002 AT (45 PREVBOTTOM+1 70 AUTO)
+	SELECTORTRIGGER "Manhattan" ID 2003 AT (45 PREVBOTTOM+1 70 AUTO)
+	SELECTORTRIGGER "Coney Island" ID 2004 AT (45 PREVBOTTOM+1 70 AUTO)
+	SELECTORTRIGGER "Brooklyn" ID 2005 AT (45 PREVBOTTOM+1 70 AUTO)
+
+	BUTTON "Cancel" ID kidOk AT (CENTER 140 AUTO AUTO)
+
+END
+
+FORM ID kidBuySell AT (2 2 156 156)
+USABLE
+MODAL
+NOFRAME
+MENUID kidMenu1
+HELPID kidBuySellHelp
+BEGIN
+	TITLE " "
+
+	SELECTORTRIGGER "Acid" ID 2000 AT (25 20 40 AUTO) DISABLED
+	SELECTORTRIGGER "Cocaine" ID 2001 AT (25 PREVBOTTOM+1 40 AUTO) DISABLED
+	SELECTORTRIGGER "Ludes" ID 2002 AT (25 PREVBOTTOM+1 40 AUTO) DISABLED
+	SELECTORTRIGGER "PCP" ID 2003 AT (25 PREVBOTTOM+1 40 AUTO) DISABLED
+	SELECTORTRIGGER "Heroin" ID 2004 AT (25 PREVBOTTOM+1 40 AUTO) DISABLED
+	SELECTORTRIGGER "Weed" ID 2005 AT (25 PREVBOTTOM+1 40 AUTO) DISABLED
+	SELECTORTRIGGER "Shrooms" ID 2006 AT (25 PREVBOTTOM+1 40 AUTO) DISABLED
+	SELECTORTRIGGER "Speed" ID 2007 AT (25 PREVBOTTOM+1 40 AUTO) DISABLED
+
+	SELECTORTRIGGER " " ID 2010 AT (4 20 20 AUTO)
+	SELECTORTRIGGER " " ID 2011 AT (4 PREVBOTTOM+1 20 AUTO)
+	SELECTORTRIGGER " " ID 2012 AT (4 PREVBOTTOM+1 20 AUTO)
+	SELECTORTRIGGER " " ID 2013 AT (4 PREVBOTTOM+1 20 AUTO)
+	SELECTORTRIGGER " " ID 2014 AT (4 PREVBOTTOM+1 20 AUTO)
+	SELECTORTRIGGER " " ID 2015 AT (4 PREVBOTTOM+1 20 AUTO)
+	SELECTORTRIGGER " " ID 2016 AT (4 PREVBOTTOM+1 20 AUTO)
+	SELECTORTRIGGER " " ID 2017 AT (4 PREVBOTTOM+1 20 AUTO)
+
+	SELECTORTRIGGER " " ID 2020 AT (66 20 40 AUTO)
+	SELECTORTRIGGER " " ID 2021 AT (66 PREVBOTTOM+1 40 AUTO)
+	SELECTORTRIGGER " " ID 2022 AT (66 PREVBOTTOM+1 40 AUTO)
+	SELECTORTRIGGER " " ID 2023 AT (66 PREVBOTTOM+1 40 AUTO)
+	SELECTORTRIGGER " " ID 2024 AT (66 PREVBOTTOM+1 40 AUTO)
+	SELECTORTRIGGER " " ID 2025 AT (66 PREVBOTTOM+1 40 AUTO)
+	SELECTORTRIGGER " " ID 2026 AT (66 PREVBOTTOM+1 40 AUTO)
+	SELECTORTRIGGER " " ID 2027 AT (66 PREVBOTTOM+1 40 AUTO)
+
+	LABEL "Cash" ID 2101 AT (121 20) FONT 1
+	LABEL "$" ID 2102 AT (109 32) FONT 0
+	LABEL "Debt" ID 2103 AT (120 46) FONT 1
+	LABEL "$" ID 2104 AT (109 58) FONT 0
+	LABEL "Savings" ID 2105 AT (113 72) FONT 1
+	LABEL "$" ID 2106 AT (109 84) FONT 0
+	LABEL "Coat" ID 2107 AT (121 98) FONT 1
+
+	BUTTON "Sell" ID 2030 AT (5 140 AUTO AUTO)
+	BUTTON "Jet" ID 2031 AT (41 140 AUTO AUTO)
+	BUTTON "Buy" ID 2032 AT (77 140 AUTO AUTO)
+
+END
+
+FORM ID kidHighScore AT (2 100 156 58)
+USABLE
+MODAL
+BEGIN
+	TITLE "New High Score"
+	
+	LABEL "You have achieved a new high score!" ID 4000 AT (CENTER 15) FONT 0
+	LABEL "Enter your name:" ID 4001 AT (5 27) FONT 0
+	FIELD ID 3000 AT (77 27 75 20) LEFTALIGN UNDERLINED SINGLELINE MAXCHARS 20
+	GRAFFITISTATEINDICATOR AT (140 45)
+
+	BUTTON "Ok" ID 3001 AT (CENTER 42 AUTO AUTO)
+END
+
+FORM ID kidScoresDlg AT (2 60 156 98)
+USABLE
+MODAL
+BEGIN
+	TITLE "High Scores"	
+	BUTTON "Ok" ID 3001 AT (CENTER 82 AUTO AUTO)
+END
+
+FORM ID kidBuy AT (2 100 156 58)
+USABLE
+MODAL
+HELPID kidBuySellHelp
+BEGIN
+	TITLE "                      "
+	
+	LABEL "                                           " ID 4000 AT (5 15) FONT 0
+	LABEL "How many do you want to buy?" ID 4001 AT (5 27) FONT 0
+	FIELD ID 3000 AT (135 27 15 20) LEFTALIGN UNDERLINED SINGLELINE MAXCHARS 3 
+
+	BUTTON "Cancel" ID 3001 AT (100 42 AUTO AUTO)
+	BUTTON "Max" ID 3003 AT (56 42 AUTO AUTO)
+	BUTTON "Ok" ID 3002 AT (20 42 AUTO AUTO)
+END
+
+FORM ID kidSell AT (2 100 156 58)
+USABLE
+MODAL
+HELPID kidBuySellHelp
+BEGIN
+	TITLE "                      "
+	
+	LABEL "                                           " ID 4000 AT (5 15) FONT 0
+	LABEL "How many do you want to sell?" ID 4001 AT (5 27) FONT 0
+	FIELD ID 3000 AT (139 27 15 20) LEFTALIGN UNDERLINED SINGLELINE MAXCHARS 3 
+
+	BUTTON "Cancel" ID 3001 AT (100 42 AUTO AUTO)
+	BUTTON "Max" ID 3003 AT (56 42 AUTO AUTO)
+	BUTTON "Ok" ID 3002 AT (20 42 AUTO AUTO)
+END
+
+FORM ID kidAmount AT (2 100 156 58)
+USABLE
+MODAL
+HELPID kidMoneyHelp
+BEGIN
+	TITLE "Enter Amount"
+	
+	LABEL "                                           " ID 4000 AT (5 15) FONT 0
+	FIELD ID 3000 AT (50 27 60 20) LEFTALIGN UNDERLINED SINGLELINE MAXCHARS 12 
+	LABEL "$" ID 4001 AT (PREVLEFT-6 27) FONT 0
+	BUTTON "Cancel" ID 3001 AT (100 42 AUTO AUTO)
+	BUTTON "Ok" ID 3002 AT (30 42 AUTO AUTO)
+END
+
+ALERT RomIncompatibleAlert
+ERROR
+BEGIN
+	TITLE "Incompatible PalmOS"
+	MESSAGE "Your version of PalmOS is not compatible with DopeWars."
+	BUTTONS "Ok"
+END
+
+ALERT kidNoSellers
+ERROR
+BEGIN
+	TITLE "Buy Drugs"
+	MESSAGE "Nobody is selling that drug here."
+	BUTTONS "Ok"
+END
+
+ALERT kidNoBuyers
+ERROR
+BEGIN
+	TITLE "Sell Drugs"
+	MESSAGE "Nobody wants to buy that drug here."
+	BUTTONS "Ok"
+END
+
+ALERT kidNoCash
+ERROR
+BEGIN
+	TITLE "Buy Drugs"
+	MESSAGE "You cannot afford any of that drug."
+	BUTTONS "Ok"
+END
+
+ALERT kidNoDrugs
+ERROR
+BEGIN
+	TITLE "Sell Drugs"
+	MESSAGE "You do not have any of that drug to sell."
+	BUTTONS "Ok"
+END
+
+ALERT kidOverSell
+ERROR
+BEGIN
+	TITLE "Sell Drugs"
+	MESSAGE "You don't have that much of that drug to sell."
+	BUTTONS "Ok"
+END
+
+ALERT kidNoRoom
+ERROR
+BEGIN
+	TITLE "Buy Drugs"
+	MESSAGE "You do not have enough room in your trenchcoat."
+	BUTTONS "Ok"
+END
+
+ALERT kidLackMoney
+ERROR
+BEGIN
+	TITLE "Money"
+	MESSAGE "You do not have that much money."
+	BUTTONS "Ok"
+END
+
+ALERT kidLackBank
+ERROR
+HELPID kidBankHelp
+BEGIN
+	TITLE "Money"
+	MESSAGE "You do not have that much money in the bank."
+	BUTTONS "Ok"
+END
+
+ALERT kidOverPay
+ERROR
+HELPID kidSharkHelp
+BEGIN
+	TITLE "Money"
+	MESSAGE "You should not overpay the Loan Shark."
+	BUTTONS "Ok"
+END
+
+ALERT kidNoMoreLoans
+ERROR
+HELPID kidSharkHelp
+BEGIN
+	TITLE "Loan Shark"
+	MESSAGE "The Loan Shark will not loan you any more money today."
+	BUTTONS "Ok"
+END
+
+ALERT kidBorrowLimit
+ERROR
+HELPID kidSharkHelp
+BEGIN
+	TITLE "Credit Risk"
+	MESSAGE "The Loan Shark is unwilling to loan you that much money.  He will loan you a maximum of $^1.^2^3"
+	BUTTONS "Ok"
+END
+
+ALERT kidNoDebt
+ERROR
+HELPID kidSharkHelp
+BEGIN
+	TITLE "Money"
+	MESSAGE "You do not have any debt."
+	BUTTONS "Ok"
+END
+
+ALERT kidNoHighScores
+ERROR
+BEGIN
+	TITLE "High Score Verification"
+	MESSAGE "There are no high scores."
+	BUTTONS "Ok"
+END
+
+ALERT kidNoGun
+ERROR
+HELPID kidCopHelp
+BEGIN
+	TITLE "Gun"
+	MESSAGE "You do not have a gun."
+	BUTTONS "Ok"
+END
+
+ALERT kidBuyMsg
+INFORMATION
+BEGIN
+	TITLE "Buy"
+	MESSAGE "Tap the entries in the prices column (3rd column) to buy drugs."
+	BUTTONS "Ok"
+END
+
+ALERT kidSellMsg
+INFORMATION
+BEGIN
+	TITLE "Sell"
+	MESSAGE "Tap the entries in the quantity column (1st column) to sell drugs."
+	BUTTONS "Ok"
+END
+
+ALERT kidLoanShark
+INFORMATION
+HELPID kidSharkHelp
+BEGIN
+	TITLE "Loan Shark"
+	MESSAGE "Would you like to visit the Loan Shark?"
+	BUTTONS "No" "Yes"
+END
+
+ALERT kidNewGame
+INFORMATION
+BEGIN
+	TITLE "New Game"
+	MESSAGE "Are you sure you want to start a new game?"
+	BUTTONS "No" "Yes"
+END
+
+ALERT kidClearScores
+INFORMATION
+BEGIN
+	TITLE "Clear High Scores"
+	MESSAGE "Are you sure you want to clear the high scores list?"
+	BUTTONS "No" "Yes"
+END
+
+ALERT kidBank
+INFORMATION
+HELPID kidBankHelp
+BEGIN
+	TITLE "Bank"
+	MESSAGE "Would you like to visit the Bank?"
+	BUTTONS "No" "Yes"
+END
+
+ALERT kidBankOptions
+HELPID kidBankHelp
+BEGIN
+	TITLE "Bank Options"
+	MESSAGE "What would you like to do at the Bank?"
+	BUTTONS "Done" "Withdraw" "Deposit"
+END
+
+ALERT kidSharkOptions
+HELPID kidSharkHelp
+BEGIN
+	TITLE "Loan Shark Options"
+	MESSAGE "What would you like to do?"
+	BUTTONS "Done" "Repay Debt" "Borrow" 
+END
+
+ALERT kidGun
+INFORMATION
+BEGIN
+	TITLE "Buy a Gun"
+	MESSAGE "Would you like to buy a gun for $400?"
+	BUTTONS "No" "Yes"
+END
+
+ALERT kidCoat
+INFORMATION
+BEGIN
+	TITLE "Buy a Bigger Coat"
+	MESSAGE "Would you like to buy a trenchcoat with more pockets for $200?"
+	BUTTONS "No" "Yes"
+END
+
+ALERT kidMessage
+INFORMATION
+BEGIN
+	TITLE "News Flash"
+	MESSAGE "^1^2^3"
+	BUTTONS "Ok"
+END
+
+ALERT kidVerifyDlg
+INFORMATION
+HELPID kidScoreHelp
+BEGIN
+	TITLE "High Score Verification"
+	MESSAGE "Name: ^1\nScore: $^2\nCode: ^3"
+	BUTTONS "Ok" "<< Prev" "Next >>"
+END
+
+ALERT kidCops
+WARNING
+HELPID kidCopHelp
+BEGIN
+	TITLE "Police"
+	MESSAGE "Officer Hardass ^1^2chasing you!  What do you do?^3"
+	BUTTONS "Run" "Fight"
+END
+
+ALERT kidCopsRan
+INFORMATION
+HELPID kidCopHelp
+BEGIN
+	TITLE "Police"
+	MESSAGE "You lost them in the alleys."
+	BUTTONS "Ok"
+END
+
+ALERT kidCopsMiss
+INFORMATION
+HELPID kidCopHelp
+BEGIN
+	TITLE "Police"
+	MESSAGE "You shot at the cops, but missed."
+	BUTTONS "Ok"
+END
+
+ALERT kidCopsHit
+INFORMATION
+HELPID kidCopHelp
+BEGIN
+	TITLE "Police"
+	MESSAGE "You shot and killed one of the cops."
+	BUTTONS "Ok"
+END
+
+ALERT kidCopsKill
+INFORMATION
+HELPID kidCopHelp
+BEGIN
+	TITLE "Police"
+	MESSAGE "The cops shot you.  You died."
+	BUTTONS "Ok"
+END
+
+ALERT kidCopsRemain
+WARNING
+HELPID kidCopHelp
+BEGIN
+	TITLE "Police"
+	MESSAGE "Officer Hardass ^1^2still chasing you!  What do you do?^3"
+	BUTTONS "Run" "Fight"
+END
+
+ALERT kidCopsMissYou
+INFORMATION
+HELPID kidCopHelp
+BEGIN
+	TITLE "Police"
+	MESSAGE "The cops shot at you, but missed."
+	BUTTONS "Ok"
+END
+
+ALERT kidCopsWounded
+INFORMATION
+HELPID kidCopHelp
+BEGIN
+	TITLE "Police"
+	MESSAGE "The cops shot you, and you are wounded."
+	BUTTONS "Ok"
+END
+
+ALERT kidCopsSeize
+INFORMATION
+HELPID kidCopHelp
+BEGIN
+	TITLE "Busted!"
+	MESSAGE "The cops seized all your dope and half your cash."
+	BUTTONS "Ok"
+END
+
+ALERT kidCopsCaught
+INFORMATION
+HELPID kidCopHelp
+BEGIN
+	TITLE "Police"
+	MESSAGE "You ran into a dead end, and the cops found you."
+	BUTTONS "Ok"
+END
+
+STRING kidRulesHelp 	"DopeWars version 2.2\nby Matthew Lee\nemail: mattlee@mit.edu\n" \
+			"web page: http://dopewars.cjb.net\n\n" \
+			"DopeWars is a game where the objective is to get rich through buying and " \
+			"selling drugs.  There are 8 types of drugs and 6 locations; at each " \
+			"location, 5 to 7 drugs will be commodities.\n\n" \
+			"At the beginning of the game, you have a small amount of cash, an empty " \
+			"savings account, and a sizeable debt to a loan shark.  In addition to " \
+			"money troubles, Officer Hardass patrols the streets, hell-bent on " \
+			"taking you down.\n\n" \
+			"For additional help, tap the Info button in dialogs, or read the " \
+			"README file that came with this program.\n\n" \
+			"This program is distributed free of charge with source code available.\n\n" \
+			"However, donations towards future quality software releases are gladly accepted. " \
+			"If you'd like, send cash or checks to:\n" \
+			"Matthew Lee\n450 Memorial Drive\nCambridge, MA 02139\n\n" \
+			"Cheat Codes:\n" \
+			"To activate cheat codes, use the Cheat menu or enter the yen symbol (¥)" \
+			" and then one of the following codes:\n" \
+			"C - get more cash ($10 million)\n" \
+			"P - no more cops\n" \
+			"T - get a huge coat (999 slots)\n" \
+			"D - erase debt to Loan Shark\n" \
+			"G - get a free gun\n" \
+			"L - make the game last 365 days\n\n" \
+			"Note that if any of these cheats are activated, you will not be able to " \
+			"save a high score for that game."
+
+STRING kidBuySellHelp "Tap the entries in the prices column (3rd column) to buy drugs.\n\n" \
+			  "Tap the entries in the quantity column (1st column) to sell drugs.\n\n" \
+			  "Your cash, debt, savings, and coat pockets are displayed on the right. " \
+			  "You have a limited amount of space in your coat, but you may have a " \
+			  "chance to buy a bigger coat during the game.\n\n" \
+			  "Drugs with a price of None are not commodities at this location, and " \
+			  "therefore cannot be bought or sold.\n\n" \
+			  "Your remaining time is below the drug table.  When that time reaches 0, " \
+			  "the game is over."
+
+STRING kidTravelHelp "Select a location to go there.  Each new location is a new day, so make " \
+			 "the most of each location.  If you do not want to Jet, tap Cancel.\n\n" \
+			 "The Loan Shark and Bank are located in the Bronx."
+
+STRING kidSharkHelp "At the Loan Shark, you can repay debt or borrow money.  It is advisable " \
+			"to repay debt as soon as you are able, because the Loan Shark charges " \
+			"12.5% interest per day.  If you aren't able to pay back the Loan Shark " \
+			"by the end of the game, his thugs will most likely break your legs.\n\n" \
+			"You start off the game with a $5500 debt to the Loan Shark.\n\n" \
+			"The Loan Shark will only loan you an amount equal to thirty times your current " \
+			"cash or $5500, whichever is greater.  Additionally, you may only take out " \
+			"one loan a day.\n\n" \
+			"The Loan Shark is located in the Bronx."
+
+STRING kidBankHelp "At the Bank, you can withdraw or deposit money into a savings account.\n\n" \
+		      "Money in a savings account accrues 6.25% interest per day.\n\n" \
+		      "The Bank is located in the Bronx."
+
+STRING kidNoHelp "This is not helping anyone."
+
+STRING kidMoneyHelp "Enter a monetary amount in this dialog box.  If you enter an invalid " \
+			"amount, such as trying to repay more debt than you have in cash, an " \
+			"error message will appear."
+			
+STRING kidCopHelp "When you run into the cops, you have two options: Run or Fight.\n\n" \
+		     "You can only fight if you have a gun.  During the game, you may have the " \
+		     "opportunity to buy a gun.\n\n" \
+		     "If you run, it is unlikely that the cops will catch you; but if they do, " \
+		     "they will seize all your drugs and half of your cash.\n\n" \
+		     "If you fight, you have the chance of killing off the cops, and not be " \
+		     "bothered for the rest of the game.  However, if you fight the cops, it is " \
+		     "fairly likely that you will be wounded and caught, and you might even be " \
+		     "killed.  It's the risk you have to take if you decide to protect your " \
+ 		     "livelihood.\n\n" \
+		     "The cops will not chase you if your coat is empty."
+
+STRING kidScoreHelp "To submit your high scores, go to the DopeWars Hall of Fame at http://dopewars.cjb.net. " \
+		    "Enter the information from the Verify High Scores dialog box into the web form, and you will " \
+		    "be placed on the high score list."
+
+ICON "dopewars.bmp"
+
+BITMAP ID kidDopeGuy "dopeguy.bmp"
+BITMAP ID kidInfoIcon "infoicon.bmp"
+
+VERSION 1 "2.2.0"
+
+MENU ID kidMenu1
+BEGIN
+      PULLDOWN "Game"
+      BEGIN
+      	MENUITEM "New Game" 5000 "N"
+	MENUITEM "View High Scores  " 5002 "S"
+	MENUITEM "Verify High Scores  " 5003 "V"
+      	MENUITEM "Clear High Scores" 5001
+      END
+      PULLDOWN "Help"
+      BEGIN
+      	MENUITEM "Game Info" 6000
+      	MENUITEM "Buying/Selling" 6001
+      	MENUITEM "Travel" 6005
+      	MENUITEM "Loan Shark" 6002
+      	MENUITEM "Bank" 6003
+      	MENUITEM "Police" 6004
+      	MENUITEM "High Scores" 6007
+        MENUITEM SEPARATOR
+        MENUITEM "Intro Screen" 6006
+      END
+      PULLDOWN "Cheats"
+      BEGIN
+      	MENUITEM "Free Money" 7000
+      	MENUITEM "Free Gun" 7004
+        MENUITEM SEPARATOR
+      	MENUITEM "No More Cops" 7001
+      	MENUITEM "No More Debt" 7003
+        MENUITEM SEPARATOR
+      	MENUITEM "Huge Coat" 7002
+      	MENUITEM "Year-Long Game" 7005
+      END
+END
+
